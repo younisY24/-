@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة الدفع</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for better Arabic font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <h1>body_ispower</h1>
+        <button id="backButton">عودة</button>
+    </header>
+
+    <main>
+        <div class="payment-section">
+            <h2>اختر طريقة الدفع</h2>
+            <div id="payment-methods">
+                <button class="payment-method" data-method="zain-cash">
+                    <img src="images/zain-cash.png" alt="Zain Cash">
+                    <span>زين كاش</span>
+                </button>
+                <button class="payment-method" data-method="visa">
+                    <img src="images/visa.png" alt="Visa">
+                    <span>فيزا</span>
+                </button>
+                <button class="payment-method" data-method="mastercard">
+                    <img src="images/mastercard.png" alt="Mastercard">
+                    <span>ماستر كارد</span>
+                </button>
+            </div>
+
+            <!-- قسم يظهر فقط عند اختيار زين كاش -->
+            <div id="zain-cash-details" class="hidden">
+                <p>أرسل المبلغ إلى الرقم التالي:</p>
+                <div class="number-container">
+                    <span id="zain-cash-number">9647805786009+</span>
+                    <button class="copy-btn" data-target="zain-cash-number">نسخ</button>
+                </div>
+            </div>
+
+            <!-- قسم يظهر فقط عند اختيار فيزا -->
+            <div id="visa-details" class="hidden">
+                <p>رقم البطاقة:</p>
+                <div class="number-container">
+                    <span id="visa-number">9258132043</span>
+                    <button class="copy-btn" data-target="visa-number">نسخ</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- حقول إدخال معلومات المستخدم (الاسم والتواصل) -->
+        <div id="user-details-container" class="hidden">
+            <div class="input-group">
+                <label for="user-name">الاسم الكامل *</label>
+                <input type="text" id="user-name" placeholder="اكتب اسمك الثلاثي" required>
+            </div>
+            <div class="input-group">
+                <label for="user-contact-info">اكتب طريقة تواصل معك</label>
+                <input type="text" id="user-contact-info" placeholder="مثال: رقم الهاتف أو معرف تيليجرام (مثل @username)">
+            </div>
+        </div>
+
+        <!-- زر التلكرام -->
+        <div id="telegram-button-container" class="hidden">
+            <a href="https://t.me/YourUsername" target="_blank" id="telegramLink">
+                تواصل معنا على تيليجرام
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>جميع الحقوق محفوظة © 2024</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

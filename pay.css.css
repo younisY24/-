@@ -1,0 +1,288 @@
+/* إعدادات عامة */
+:root {
+    --primary-color: #007bff;
+    --success-color: #28a745;
+    --juicy-color-1: #ff6b6b;
+    --juicy-color-2: #feca57;
+    --dark-color: #333;
+    --light-color: #f4f4f4;
+    --border-radius: 12px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    color: var(--dark-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* --- الخلفية الديناميكية --- */
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+/* --- حركة تغيير ألوان الخلفية --- */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* الرأس */
+header {
+    background-color: rgba(255, 255, 255, 0.9); /* خلفية شفافة */
+    backdrop-filter: blur(10px); /* تأثير الضبابية */
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    background: linear-gradient(45deg, var(--primary-color), var(--success-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+#backButton {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 700;
+    color: #fff;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#backButton:hover {
+    background-color: #0056b3;
+}
+
+/* المحتوى الرئيسي */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.payment-section {
+    width: 100%;
+    max-width: 600px;
+    background-color: rgba(255, 255, 255, 0.85); /* خلفية شفافة */
+    backdrop-filter: blur(10px); /* تأثير الزجاجية */
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.payment-section h2 {
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    color: var(--dark-color);
+}
+
+#payment-methods {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.payment-method {
+    background-color: #fff;
+    border: 2px solid #e0e0e0;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    width: 150px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.payment-method:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border-color: var(--primary-color);
+}
+
+.payment-method:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.payment-method img {
+    width: 60px;
+    height: auto;
+}
+
+.payment-method span {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+/* --- تنسيقات تفاصيل الدفع --- */
+#zain-cash-details, #visa-details {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #e9f5ff;
+    border: 1px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    transition: all 0.5s ease;
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+#zain-cash-details:not(.hidden), #visa-details:not(.hidden) {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.number-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+#zain-cash-number, #visa-number {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    user-select: all;
+}
+
+.copy-btn {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #fff;
+    background-color: var(--success-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.copy-btn:hover {
+    background-color: #218838;
+}
+
+/* --- تنسيقات حقول المستخدم --- */
+#user-details-container {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 20px;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#user-details-container:not(.hidden) {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark-color);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    font-family: 'Tajawal', sans-serif;
+    border: 2px solid #e0e0e0;
+    border-radius: var(--border-radius);
+    text-align: center;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* حاوية زر التلكرام */
+#telegram-button-container {
+    margin-top: 40px;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#telegram-button-container:not(.hidden) {
+    opacity: 1;
+    transform: scale(1);
+}
+
+#telegram-button-container.hidden {
+    display: none;
+}
+
+#telegramLink {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    background-color: #0088cc;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#telegramLink:hover {
+    background-color: #0077b3;
+    transform: scale(1.05);
+}
+
+/* التذييل */
+footer {
+    background: linear-gradient(to left, var(--juicy-color-1), var(--juicy-color-2));
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-weight: 700;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}

@@ -8,7 +8,7 @@ window.addEventListener('load', () => {
 
   // Register Service Worker
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/ar/sw.js') // تغيير المسار للدل العربية
+    navigator.serviceWorker.register('F.js') // تغيير المسار للدل العربية
       .then(reg => {
         console.log('تم تسجيل خدمة العامل بنجاح');
         

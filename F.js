@@ -3,7 +3,7 @@ const CACHE_NAME = 'fitness-v1';
 self.addEventListener('install', (e) => {
   e.waitUntil(
     caches.open(CACHE_NAME).then(cache =>
-cache.addAll(['/', '/ar/index.html', '/ar/manifest.json', '/ar/compounding_calculator.html', ']);    )
+cache.addAll(['/', 'index.html', 'A.json']);    )
   );
 });
 
